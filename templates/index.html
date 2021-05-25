@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Clothes classifier</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  
+</head>
+
+<body>
+
+
+
+<h1><center>Enter picture of a clothing<br> piece</center></h1>
+
+
+<form class="form" action="/upload" method="POST" enctype="multipart/form-data">
+<div class='container'>           
+      <div class="form-group">
+        <br><br>
+        <center><img id="img" src="https://blackmantkd.com/wp-content/uploads/2017/04/default-image-620x600.jpg" alt="your image" width="200" height="200" /></center>
+        <br><br>
+        <input type="file" id='archivo' name='archivo' class="form-control mx-sm-3" onchange="readURL(this);">
+      </div>
+        <br>    
+       <center> <input type="submit" class="btn btn-dark" value=" Classify the image! "></center>    
+    </form>
+</div>
+
+</body>
+
+<script>
+   function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#img')
+                    .attr('src', e.target.result);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }           
+</script>
+</html>
